@@ -1,0 +1,62 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jaas
+  namespace: chplatform
+spec:
+  selector:
+    app: jaas
+    env: ci1
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jaas
+  namespace: chplatform
+  labels:
+    app: jaas
+    env: ci1
+spec:
+  revisionHistoryLimit: 0
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jaas
+      env: ci1
+  template:
+    metadata:
+      labels:
+        app: jaas
+        env: ci1
+    spec:
+      containers:
+      - name: jaas
+        image: dev-registry.int.comhem.com/chplatform/jaas:LATEST-VERSION-TAG
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jaas
+  namespace: chplatform
+spec:
+  rules:
+  - host: jaas-chplatform.dev-dockeree.int.comhem.com
+    http:
+      paths:
+      - backend:
+          serviceName: jaas
+          servicePort: 80
+  tls:
+  - hosts:
+    - jaas-chplatform.dev-dockeree.int.comhem.com
