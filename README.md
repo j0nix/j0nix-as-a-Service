@@ -7,11 +7,11 @@
 [GET]   http://<url>:8080/wisdoms
 ```
 # CRUD
-## ADD NEW
+## CREATE
 ```
 [POST]    http://<url>:8080/wisdoms?msg={url-encoded-text}
 ```
-## GET SPECIFIC 
+## READ
 ```
 [GET]     http://<url>:8080/wisdoms/{id}
 ```
