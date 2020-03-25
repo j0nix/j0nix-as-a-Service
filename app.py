@@ -90,6 +90,9 @@ def deleteAWisdom(id):
     return jsonify({"info": "Removed j0nixDB wisdom with id {}".format(id)})
 
 
+""" Get a random wisdom """
+
+
 def randomizedWizdom():
     try:
         rows = session.query(func.count(j0nixDB.id)).scalar()
@@ -141,7 +144,7 @@ def wisdomsByIdFunction(id):
 
 @app.route("/random", methods=["GET"])
 def randomWisdomFunction():
-    ''' Go get a random wisdom '''
+    """ Go get a random wisdom """
     return randomizedWizdom()
 
 
