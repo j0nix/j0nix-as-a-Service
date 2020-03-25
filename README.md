@@ -2,9 +2,16 @@
 * What would j0nix have said?
 * as a REST API for my collegues to utilize when I change job.
 ## GET ALL
+Get all entry:s in database
 ```
 [GET]   http://<url>:8080/
 [GET]   http://<url>:8080/wisdoms
+```
+
+## GET RANDOM
+Get a random entry from database
+```
+[GET]   http://<url>:8080/random
 ```
 # CRUD
 ## CREATE
