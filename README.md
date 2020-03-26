@@ -1,6 +1,14 @@
 # j0nix-as-a-Service
 * What would j0nix have said?
 * as a REST API for my collegues to utilize when I change job.
+
+# HOWTO
+```
+python app.py
+```
+- If database is not present, one is created.
+- Dockerfile & kubernetes deployment example included in repository
+
 ## GET ALL
 Get all entry:s in database
 ```
