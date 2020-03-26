@@ -8,6 +8,10 @@ python app.py
 ```
 - If database is not present, one is created.
 - Dockerfile & kubernetes deployment example included in repository
+```
+docker build . -t jaas:latest
+docker run -d -p 8080:8080 jaas:latest
+```
 
 ## GET ALL
 Get all entry:s in database
